@@ -1,0 +1,6 @@
+ songs index
+
+ <h1>List all the songs</h1>
+ <%@songs.each do |song|%>
+    <div><a href='/songs/<%= Slugifiable.slug(song.name) %>'><%= song.name %></a></div>
+<%end%>

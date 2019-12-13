@@ -1,0 +1,18 @@
+<form method="post" action="/songs/<%=Slugifiable.slug(@song.name)%>">
+<input name="_method" value="patch" type="hidden">
+<label>Song Name</label>
+<br>
+<input type="text" name="song[name]" value="<%=@song.name%>" >
+<br>
+<label>Genre</label>
+<br>
+<%@genres.each do |genre|%>
+    <input type="checkbox" name="song[genre_ids][]" value="<%=genre.id%>" <%="checked" if @song.genres.include?(genre)%>><%=genre.name%>
+    <br>
+<%end%>
+<br>
+<label>Artist</label>
+<input type="text" name="song[artist]" value="<%=@song.artist.name%>">
+<br>
+<input type="submit" value="Update Song">
+</form>

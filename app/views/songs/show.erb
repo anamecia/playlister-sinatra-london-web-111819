@@ -1,0 +1,11 @@
+songs show.erb
+
+<h1><%=@song.name%></h1>
+<h3>Song Artist</h3>
+<p><a href="/artists/<%=Slugifiable.slug(@song.artist.name)%>"><%=@song.artist.name%></a></p>
+<h3>Song Genres</h3>
+<%@song.genres.each do |genre|%>
+    <p><a href="/genres/<%=Slugifiable.slug(genre.name)%>"><%=genre.name%></a></p>
+    <br>
+<%end%>
+<a href="/songs/<%=Slugifiable.slug(@song.name)%>/edit">Update Song</a>

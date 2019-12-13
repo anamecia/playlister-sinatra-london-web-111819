@@ -23,6 +23,7 @@ class LibraryParser
   def call
     files.each do |filename|
       parts = parse_filename(filename)
+      # binding.pry
       build_objects(*parts)
     end
   end
@@ -34,7 +35,7 @@ class LibraryParser
 
     song.song_genres.build(genre: genre)
     song.artist = artist
-    
+    # binding.pry
     song.save
   end
 end
